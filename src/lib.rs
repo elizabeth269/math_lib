@@ -57,3 +57,68 @@ pub fn cos(radians: f64) -> f64 {
 pub fn tan(radians: f64) -> f64 {
     radians.tan()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_add() {
+        assert_eq!(add(2.0, 3.0), 5.0);
+    }
+
+    #[test]
+    fn test_subtract() {
+        assert_eq!(subtract(5.0, 3.0), 2.0);
+    }
+
+    #[test]
+    fn test_multiply() {
+        assert_eq!(multiply(2.0, 3.0), 6.0);
+    }
+
+    #[test]
+    fn test_divide() {
+        assert_eq!(divide(6.0, 3.0).unwrap(), 2.0);
+    }
+
+    #[test]
+    fn test_divide_by_zero() {
+        assert!(divide(1.0, 0.0).is_err());
+    }
+
+    #[test]
+    fn test_power() {
+        assert_eq!(power(2.0, 3.0), 8.0);
+    }
+
+    #[test]
+    fn test_sqrt() {
+        assert_eq!(sqrt(9.0).unwrap(), 3.0);
+    }
+
+    #[test]
+    fn test_sqrt_negative() {
+        assert!(sqrt(-1.0).is_err());
+    }
+
+    #[test]
+    fn test_to_radians() {
+        assert_eq!(to_radians(180.0), std::f64::consts::PI);
+    }
+
+    #[test]
+    fn test_sin() {
+        assert_eq!(sin(to_radians(30.0)), 0.5);
+    }
+
+    #[test]
+    fn test_cos() {
+        assert_eq!(cos(to_radians(60.0)), 0.5);
+    }
+
+    #[test]
+    fn test_tan() {
+        assert!((tan(to_radians(45.0)) - 1.0).abs() < 1e-10);
+    }
+}
