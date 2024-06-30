@@ -35,3 +35,25 @@ pub fn sqrt(number: f64) -> Result<f64, &'static str> {
         Ok(number.sqrt())
     }
 }
+
+use std::f64::consts::PI;
+
+/// Converts degrees to radians.
+pub fn to_radians(degrees: f64) -> f64 {
+    degrees * (PI / 180.0)
+}
+
+/// Computes the sine of a number (in radians).
+pub fn sin(radians: f64) -> f64 {
+    radians.sin()
+}
+
+/// Computes the cosine of a number (in radians).
+pub fn cos(radians: f64) -> f64 {
+    radians.cos()
+}
+
+/// Computes the tangent of a number (in radians).
+pub fn tan(radians: f64) -> f64 {
+    radians.tan()
+}
